@@ -23,6 +23,7 @@ This is an app that users can log in and write a blog and view all the blogs tha
     ```
     pip install -r requirements.txt
     ```
+  * Assign ```SQLALCHEMY_DATABASE_URI ``` with your own database.
   * Run it:
     ```
     pyhton3.6 manage.py server
