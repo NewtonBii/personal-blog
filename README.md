@@ -1,7 +1,7 @@
 # PITCH
 This is a web app built with FLASK framework.
 ## Built by  [Newton Bii](https://github.com/NewtonBii)
-    * [LAUNCH](https://newton-personal-blog.herokuapp.com/)
+    [LAUNCH](https://newton-personal-blog.herokuapp.com)
 
 ## Description
 This is an app that users can log in and write a blog and view all the blogs that other users have created.
