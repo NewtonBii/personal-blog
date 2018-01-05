@@ -14,3 +14,10 @@ def index():
     title = 'Home- Welcome to Blogger'
 
     return render_template('index.html', title=title)
+
+@main.route('/homepage')
+# @login_required
+def user():
+    """View function that returns the homepage for a particular user when they sign in"""
+
+    return render_template("email/welcome_user.html")

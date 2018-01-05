@@ -1,0 +1,5 @@
+Hello {{user.username}}
+Welcome to Blogger...
+A place that you can create blogs or comment on other blogs and vent while at it.
+Enjoy.
+Blogger Team.
