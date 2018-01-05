@@ -9,13 +9,18 @@
 
   </div>
   <div class="col-xs-4">
-    <button type="click" name="button" class="btn btn-default btn-block" id="sign-in">SIGN IN</button>
+    <a href="#">
+      <button type="click" name="button" class="btn btn-default btn-block" id="sign-in">SIGN IN</button>
+    </a>
+
     <div class="sign-in">
       <div class="well" id="sign-in-form">
 
       </div>
     </div>
-    <button type="button" name="button" class="btn btn-default btn-block"id="register">REGISTER</button>
+    <a href="#">
+      <button type="button" name="button" class="btn btn-default btn-block" id="register">REGISTER</button>
+    </a>
     <div class="register">
       <div class="well">
 
@@ -25,17 +30,13 @@
   </div>
 </div>
 </div>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-<script type="text/javascript">
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
   $(document).ready(function(){
+    event.preventDefault();
     $("#sign-in").click(function(event){
-      $("#sign-in-form").show();
+      $("#sign-in-form").show(500);
     });
-
   });
 </script>
 {% block styles%}
