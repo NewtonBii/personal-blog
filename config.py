@@ -4,23 +4,20 @@ import os
 class Config:
     """Main configurations class"""
 
-    # # SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://newton:newton@localhost/new_pitch'
-    # SECRET_KEY = os.environ.get("SECRET_KEY")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI")
+    SECRET_KEY = os.environ.get("SECRET_KEY")
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
-    # MAIL_SERVER = 'smtp.mail.yahoo.com'
-    # MAIL_PORT = 587
-    # MAIL_USE_TLS = True
-    # MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
-    # MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    # SUBJECT_PREFIX = 'PITCH'
-    # SENDER_EMAIL = 'biinewtondev@yahoo.com'
+    MAIL_SERVER = 'smtp.mail.yahoo.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+
 
 
 class ProdConfig(Config):
     """Production configuration class that inherits from the main configurations class"""
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    # # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://newton:newton@localhost/new_pitch'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 
 class DevConfig(Config):

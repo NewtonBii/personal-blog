@@ -9,8 +9,8 @@ app = create_app('development')
 manager = Manager(app)
 manager.add_command('server', Server)
 
-# migrate = Migrate(app, db)
-# manager.add_command('db', MigrateCommand)
+migrate = Migrate(app, db)
+manager.add_command('db', MigrateCommand)
 
 
 @manager.command
@@ -23,7 +23,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return dict(app=app, db=db, User=User, Comments=Comments, PitchCategory=PitchCategory, Pitches=Pitches)
+    return dict(app=app, db=db, User=User)
     pass
 
 
