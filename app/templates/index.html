@@ -3,7 +3,90 @@
 
 {% block styles%}
     {{ super() }}
+    <link href="https://fonts.googleapis.com/css?family=Acme|Berkshire+Swash|Bree+Serif|Courgette|Lobster|Sedgwick+Ave+Display|Yanone+Kaffeesatz" rel="stylesheet">
+    <style>
+
+/*font-family: 'Courgette', cursive;
+font-family: 'Sedgwick Ave Display', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Yanone Kaffeesatz', sans-serif;
+font-family: 'Bree Serif', serif;
+font-family: 'Acme', sans-serif;
+font-family: 'Berkshire Swash', cursive;*/
+
+*{
+  box-sizing:border-box;
+}
+body{
+  background:url("static/images/logo.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:white;
+  text-align:center;
+  font-family: 'Courgette', cursive;
+}
+
+h1{
+  font-family: 'Berkshire Swash', cursive;
+  font-weight:400;
+  font-style:italic;
+  font-size:5.5em;
+  margin-top: 10%;
+}
+
+p{
+  font-size:20px;
+}
+.sign-in{
+  display: none;
+}
+.register{
+  display: none;
+}
+    </style>
 {% endblock %}
 {% block content %}
+<div class="wrap">
 
+<h1>Welcome to BLOGGER</h1>
+<div class="row">
+  <div class="col-xs-4">
+
+  </div>
+  <div class="col-xs-4"><a href="#"><button type="click" name="button" class="btn btn-default btn-block" id="sign-in">SIGN IN</button></a>
+
+    <div class="sign-in">
+      <div class="well" id="sign-in-form">
+
+      </div>
+    </div>
+    <a href="#"><button type="button" name="button" class="btn btn-default btn-block"id="register">REGISTER</button></a>
+
+    <div class="register">
+      <div class="well">
+
+      </div>
+  </div>
+  <div class="col-xs-4">
+
+  </div>
+</div>
+
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $("#sign-in").click(function(event){
+      $("#sign-in-form").show();
+    });
+
+  });
+</script>
 {% endblock %}
