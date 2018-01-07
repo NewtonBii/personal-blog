@@ -1,50 +1,62 @@
-{% extends 'base.html'%}
-
-{% block content %}
-<div class="wrap">
-
-<h1>Welcome to BLOGGER</h1>
+{% extends 'base.html'%} {% import "bootstrap/wtf.html" as wtf %} {% block content %} {% if current_user.is_authenticated %}
+<h3>Hello {{current_user.username}}</h3>
 <div class="row">
-  <div class="col-xs-4">
-
+  <div class="col-xs-6">
+    {{ wtf.quick_form(form) }}
   </div>
-  <div class="col-xs-4">
-    <a href="{{url_for('auth.login')}}">
+  <div class="col-xs-6">
+    {% for post in posts %}
+    <li class="post">
+      <div class="profile-thumbnail">
+        <a href="{{ url_for('.user', username=post.author.username) }}">
+<img class="img-rounded profile-thumbnail"
+src="{{ post.author.gravatar(size=40) }}">
+</a>
+      </div>
+      <div class="post-date">{{ moment(post.timestamp).fromNow() }}</div>
+      <div class="post-author">
+        <a href="{{ url_for('.user', username=post.author.username) }}">
+{{ post.author.username }}
+</a>
+      </div>
+      <div class="post-body">{{ post.body }}</div>
+    </li>
+    {% endfor %}
+  </div>
+</div>
+{% else %}
+<div class="wrap">
+  <h1 class="text-center">Welcome to BLOGGER</h1>
+  <div class="row">
+    <div class="col-xs-4">
+
+    </div>
+    <div class="col-xs-4">
+      <a href="{{url_for('auth.login')}}">
       <button type="click" name="button" class="btn btn-default btn-block" id="sign-in">SIGN IN</button>
     </a>
 
-    <div class="sign-in">
-      <div class="well" id="sign-in-form">
+      <div class="sign-in">
+        <div class="well" id="sign-in-form">
 
+        </div>
       </div>
-    </div>
-    <a href="{{url_for('auth.register')}}">
+      <a href="{{url_for('auth.register')}}">
       <button type="button" name="button" class="btn btn-default btn-block" id="register">REGISTER</button>
     </a>
-    <div class="register">
-      <div class="well">
+      <div class="register">
+        <div class="well">
 
+        </div>
       </div>
+      <div class="col-xs-4">
+      </div>
+    </div>
   </div>
-  <div class="col-xs-4">
-  </div>
-</div>
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script>
-  $(document).ready(function(){
-    event.preventDefault();
-    $("#sign-in").click(function(event){
-      $("#sign-in-form").show(500);
-    });
-  });
-</script>
-{% block styles%}
-    {{ super() }}
-    <link href="https://fonts.googleapis.com/css?family=Acme|Berkshire+Swash|Bree+Serif|Courgette|Lobster|Sedgwick+Ave+Display|Yanone+Kaffeesatz" rel="stylesheet">
-    <style>
-
-/*font-family: 'Courgette', cursive;
+  {% endif %} {% block styles%} {{ super() }}
+  <link href="https://fonts.googleapis.com/css?family=Acme|Berkshire+Swash|Bree+Serif|Courgette|Lobster|Sedgwick+Ave+Display|Yanone+Kaffeesatz" rel="stylesheet">
+  <style>
+    /*font-family: 'Courgette', cursive;
 font-family: 'Sedgwick Ave Display', cursive;
 font-family: 'Lobster', cursive;
 font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -52,37 +64,34 @@ font-family: 'Bree Serif', serif;
 font-family: 'Acme', sans-serif;
 font-family: 'Berkshire Swash', cursive;*/
 
-*{
-  box-sizing:border-box;
-}
-body{
-  background:url("static/images/logo.jpg")no-repeat center center fixed;
-    -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color:white;
-  text-align:center;
-  font-family: 'Courgette', cursive;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-h1{
-  font-family: 'Berkshire Swash', cursive;
-  font-weight:400;
-  font-style:italic;
-  font-size:5.5em;
-  margin-top: 10%;
-}
+    h1 {
+      font-family: 'Berkshire Swash', cursive;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 5.5em;
+      margin-top: 10%;
+    }
 
-p{
-  font-size:20px;
-}
-.sign-in{
-  display: none;
-}
-.register{
-  display: none;
-}
-    </style>
-{% endblock %}
-{% endblock %}
+    h3 {
+      font-family: 'Berkshire Swash', cursive;
+      font-weight: 400;
+      font-size: 2.5em;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    .sign-in {
+      display: none;
+    }
+
+    .register {
+      display: none;
+    }
+  </style>
+  {% endblock %} {% endblock %}
