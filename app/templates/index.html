@@ -26,28 +26,20 @@ src="{{ post.author.gravatar(size=40) }}">
 </div>
 {% else %}
 <div class="wrap">
-  <h1 class="text-center">Welcome to BLOGGER</h1>
   <div class="row">
     <div class="col-xs-4">
 
     </div>
     <div class="col-xs-4">
-      <a href="{{url_for('auth.login')}}">
-      <button type="click" name="button" class="btn btn-default btn-block" id="sign-in">SIGN IN</button>
-    </a>
-
-      <div class="sign-in">
-        <div class="well" id="sign-in-form">
-
-        </div>
-      </div>
-      <a href="{{url_for('auth.register')}}">
-      <button type="button" name="button" class="btn btn-default btn-block" id="register">REGISTER</button>
-    </a>
-      <div class="register">
-        <div class="well">
-
-        </div>
+      <div class="well" style="margin-top:10%; margin-bottom:10%">
+        <h1 class="text-center">HEY THERE!</h1>
+        <h2 class="text-center">Welcome to Blogger</h2>
+        <a href="{{url_for('auth.login')}}">
+        <button type="click" name="button" class="btn btn-default btn-block" id="sign-in">SIGN IN</button>
+      </a>
+        <a href="{{url_for('auth.register')}}">
+        <button type="button" name="button" class="btn btn-default btn-block" id="register">REGISTER</button>
+      </a>
       </div>
       <div class="col-xs-4">
       </div>
@@ -72,11 +64,11 @@ font-family: 'Berkshire Swash', cursive;*/
       font-family: 'Berkshire Swash', cursive;
       font-weight: 400;
       font-style: italic;
-      font-size: 5.5em;
+      font-size: 3.5em;
       margin-top: 10%;
     }
 
-    h3 {
+    h2 {
       font-family: 'Berkshire Swash', cursive;
       font-weight: 400;
       font-size: 2.5em;
@@ -86,12 +78,8 @@ font-family: 'Berkshire Swash', cursive;*/
       font-size: 20px;
     }
 
-    .sign-in {
-      display: none;
-    }
-
-    .register {
-      display: none;
+    .wrap {
+      background-color: #2471A3;
     }
   </style>
   {% endblock %} {% endblock %}

@@ -16,11 +16,12 @@ def index():
     form = PostForm()
 
     if form.validate_on_submit():
-        post = Post(body=form.body.data,
-        author=current_user._get_current_object())
+        post = Post(body=form.body.data, author=current_user._get_current_object())
         post.save_post()
-        return redirect(url_for('.user'))
+        return redirect(url_for('.index'))
+
     posts = Post.query.order_by(Post.timestamp.desc()).all()
+
     return render_template('index.html', form=form, posts=posts)
 
 
@@ -34,3 +35,9 @@ def user(username):
 
     posts = user.posts.order_by(Post.timestamp.desc()).all()
     return render_template('user.html', user=user, posts=posts)
+
+
+@main.route('/post/<int:id>')
+def post(id):
+    post = Post.query.get_or_404(id)
+    return render_template('posts.html', posts=[post])
